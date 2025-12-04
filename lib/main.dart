@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'heatmap.dart';
+import 'pulldown.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -13,33 +13,20 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Color.fromARGB(255, 5, 165, 239),
+          title: const Text('Festflow'),
+        ),
         body: Column(
           children: [
-            Container(
-              margin: const EdgeInsets.all(10),
-              padding: const EdgeInsets.all(10),
-              height: 60,
-              width: 400,
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.black),
-                color: Colors.lightBlue,
-                borderRadius: BorderRadius.circular(10),
-              ),
-
-              child: const Text("hier kan je de festivals kiezen"),
-            ),
+            const Pulldown(),
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.all(10),
-                child: Heatmap(),
+                child: const Heatmap(),
               ),
             ),
           ],
-        ),
-
-        appBar: AppBar(
-          backgroundColor: Color.fromARGB(255, 5, 165, 239),
-          title: Text('Festflow'),
         ),
       ),
     );
