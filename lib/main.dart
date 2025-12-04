@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'heatmap.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,25 +18,28 @@ class MyApp extends StatelessWidget {
             Container(
               margin: const EdgeInsets.all(10),
               padding: const EdgeInsets.all(10),
-              color: Colors.lightBlue,
               height: 60,
               width: 400,
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.black),
+                color: Colors.lightBlue,
+                borderRadius: BorderRadius.circular(10),
+              ),
+
               child: const Text("hier kan je de festivals kiezen"),
             ),
-            Container(
-              margin: const EdgeInsets.all(20),
-              padding: const EdgeInsets.all(10),
-              color: Colors.lightBlue,
-              height: 700,
-              width: 400,
-              child: const Text("hier komt de map"),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(10),
+                child: Heatmap(),
+              ),
             ),
           ],
         ),
 
         appBar: AppBar(
           backgroundColor: Color.fromARGB(255, 5, 165, 239),
-          title: Text('Hier komt de naam van de app en logo'),
+          title: Text('Festflow'),
         ),
       ),
     );
